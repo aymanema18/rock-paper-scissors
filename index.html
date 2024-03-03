@@ -9,32 +9,24 @@
     <script>
         // BEGIN
         // CALL playGame
-            // INIT counter to 0
-            // SET userScore to 0
-            // SET computerScore to 0
-            // WHILE counter  <  5
-                // GET choice from user and SET it to userChoice
-                // CALL getComputerChoice RETURNING choice and SET it to computerChoice
-                // CALL playRound with userChoice and computerChoice
-            // ENDWHILE
         // CALL winner
 
         // function playRound with userChoice and computerChoice
         function playRound(userChoice, computerChoice) {
             if (userChoice === computerChoice) {
-                alert(`Draw!`);
+                return `Draw!`;
             } else if (userChoice === "Paper" && computerChoice === "Rock") {
-                alert(`You Win! ${userChoice} beats ${computerChoice}`);
                 userScore++;
+                return`You Win! ${userChoice} beats ${computerChoice}`;
             } else if (userChoice === "Scissors" && computerChoice === "Paper") {
-                alert(`You Win! ${userChoice} beats ${computerChoice}`);
                 userScore++;
+                return`You Win! ${userChoice} beats ${computerChoice}`;
             } else if (userChoice === "Rock" && computerChoice === "Scissors") {
-                alert(`You Win! ${userChoice} beats ${computerChoice}`);
                 userScore++;
+                return`You Win! ${userChoice} beats ${computerChoice}`;
             } else {
-                alert(`You Lose! ${computerChoice} beats ${userChoice}`);
                 computerScore++;
+                return `You Lose! ${computerChoice} beats ${userChoice}`;
             }
         }
         // function getComputerChoice 
@@ -48,6 +40,24 @@
                 return "Scissors";
             }
         }
+        // function playGame
+        function playGame() {
+            let userChoice = prompt('Your choice:').toLowerCase();
+            userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1).toLowerCase();
+            let computerChoice = getComputerChoice();
+            let computerScore = 0;
+            let userScore = 0;
+            for (let counter = 0; counter < 5; counter++){
+                console.log(playRound(userChoice, computerChoice));
+            }
+            return winner();
+        }
+            // INIT counter to 0
+            // SET userScore to 0
+            // SET computerScore to 0
+            // WHILE counter  <  5
+            // GET choice from user and SET it to userChoice
+
          // function winner
             // IF computerScore > userScore  THEN
             // You Lose!
