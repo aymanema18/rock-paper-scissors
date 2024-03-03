@@ -9,7 +9,9 @@
     <script>
         // BEGIN
         // CALL playGame
-        // CALL winner
+        let userScore = 0;
+        let computerScore = 0;
+        playGame();
 
         // function playRound with userChoice and computerChoice
         function playRound(userChoice, computerChoice) {
@@ -42,29 +44,25 @@
         }
         // function playGame
         function playGame() {
-            let userChoice = prompt('Your choice:').toLowerCase();
-            userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1).toLowerCase();
-            let computerChoice = getComputerChoice();
-            let computerScore = 0;
-            let userScore = 0;
             for (let counter = 0; counter < 5; counter++){
-                console.log(playRound(userChoice, computerChoice));
+                let userChoice = prompt('Your choice:').toLowerCase();
+                userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1).toLowerCase();
+                let computerChoice = getComputerChoice();
+                let result = playRound(userChoice, computerChoice, userScore, computerScore);
+                console.log(result);
             }
-            return winner();
+            return console.log(winner());
         }
-            // INIT counter to 0
-            // SET userScore to 0
-            // SET computerScore to 0
-            // WHILE counter  <  5
-            // GET choice from user and SET it to userChoice
-
          // function winner
-            // IF computerScore > userScore  THEN
-            // You Lose!
-            // ELSE IF computerScore < userScore  THEN
-            // You Win!
-            // ELSE
-            // Draw!
+         function winner() {
+            if (userScore > computerScore) {
+                return "You Win!"
+            } else if (userScore < computerScore) {
+                return "You Lose!"
+            } else {
+                return "Its a Tie!"
+            }
+         }
     </script>
 </body>
 </html>
