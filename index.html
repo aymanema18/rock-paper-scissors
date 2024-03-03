@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        // BEGIN
+        // CALL playGame
+            // INIT counter to 0
+            // SET userScore to 0
+            // SET computerScore to 0
+            // WHILE counter  <  5
+                // GET choice from user and SET it to userChoice
+                // CALL getComputerChoice RETURNING choice and SET it to computerChoice
+                // CALL playRound with userChoice and computerChoice
+            // ENDWHILE
+        // CALL winner
+
+        // function playRound with userChoice and computerChoice
+            // IF userChoice = computerChoice THEN
+            // PRINT Draw!
+            // ELSE IF userChoice = paper and computerChoice = rock THEN
+            // INCREMENT userScore by 1
+            // PRINT You Wine! userChoice beats computerChoice
+            // ELSE IF IF userChoice = scissors and computerChoice = paper THEN
+            // INCREMENT userScore by 1
+            // PRINT You Wine! userChoice beats computerChoice
+            // ELSE IF IF userChoice =  rock and computerChoice = scissors THEN
+            // INCREMENT userScore by 1
+            // PRINT You Wine! userChoice beats computerChoice
+            // ELSE 
+            // INCREMENT computerScore by 1
+            // PRINT You Lose! computerChoice beats userChoice
+            // ENDIF
+
+        // function winner
+            // IF computerScore > userScore  THEN
+            // You Lose!
+            // ELSE IF computerScore < userScore  THEN
+            // You Win!
+            // ELSE
+            // Draw!
+
+        // function getComputerChoice 
+        function getComputerChoice() {
+            let number = Math.floor(Math.random() * 100) + 1;
+            if (number <= 33) {
+                return "Paper";
+            } else if (number >= 66) {
+                return "Rock";
+            } else {
+                return "Scissors";
+            }
+        }
+    </script>
+</body>
+</html>
