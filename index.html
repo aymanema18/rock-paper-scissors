@@ -20,30 +20,23 @@
         // CALL winner
 
         // function playRound with userChoice and computerChoice
-            // IF userChoice = computerChoice THEN
-            // PRINT Draw!
-            // ELSE IF userChoice = paper and computerChoice = rock THEN
-            // INCREMENT userScore by 1
-            // PRINT You Wine! userChoice beats computerChoice
-            // ELSE IF IF userChoice = scissors and computerChoice = paper THEN
-            // INCREMENT userScore by 1
-            // PRINT You Wine! userChoice beats computerChoice
-            // ELSE IF IF userChoice =  rock and computerChoice = scissors THEN
-            // INCREMENT userScore by 1
-            // PRINT You Wine! userChoice beats computerChoice
-            // ELSE 
-            // INCREMENT computerScore by 1
-            // PRINT You Lose! computerChoice beats userChoice
-            // ENDIF
-
-        // function winner
-            // IF computerScore > userScore  THEN
-            // You Lose!
-            // ELSE IF computerScore < userScore  THEN
-            // You Win!
-            // ELSE
-            // Draw!
-
+        function playRound(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+                alert(`Draw!`);
+            } else if (userChoice === "Paper" && computerChoice === "Rock") {
+                alert(`You Win! ${userChoice} beats ${computerChoice}`);
+                userScore++;
+            } else if (userChoice === "Scissors" && computerChoice === "Paper") {
+                alert(`You Win! ${userChoice} beats ${computerChoice}`);
+                userScore++;
+            } else if (userChoice === "Rock" && computerChoice === "Scissors") {
+                alert(`You Win! ${userChoice} beats ${computerChoice}`);
+                userScore++;
+            } else {
+                alert(`You Lose! ${computerChoice} beats ${userChoice}`);
+                computerScore++;
+            }
+        }
         // function getComputerChoice 
         function getComputerChoice() {
             let number = Math.floor(Math.random() * 100) + 1;
@@ -55,6 +48,13 @@
                 return "Scissors";
             }
         }
+         // function winner
+            // IF computerScore > userScore  THEN
+            // You Lose!
+            // ELSE IF computerScore < userScore  THEN
+            // You Win!
+            // ELSE
+            // Draw!
     </script>
 </body>
 </html>
