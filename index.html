@@ -9,59 +9,76 @@
     <button class="rock" value="Rock">Rock</button>
     <button class="paper" value="Paper">Paper</button>
     <button class="scissors" value="Scissors">Scissors</button>
-    <p></p>
+    <div class="scores"></div>
+    <div class="roundreslut"></div>
+    <div class="result"></div>
     <script>
         // BEGIN
         // CALL playGame
         let rock = document.querySelector(".rock");
         let paper = document.querySelector(".paper");
         let scissors = document.querySelector(".scissors");
-        let p = document.querySelector("p");
+        let div = document.querySelector(".result");
+        let scores = document.querySelector(".scores");
+        let roundResult = document.querySelector(".roundreslut");
         let computerChoice;
         let userScore = 0;
         let computerScore = 0;
+        scores.textContent = `your score = ${userScore}  computer score = ${computerScore}`;
         paper.addEventListener("click", () => {
             playRound(paper.value);
+            scores.textContent = `your score = ${userScore}  computer score = ${computerScore}`;
             if (userScore === 5 || computerScore === 5) {
-            p.textContent = winner()
+            div.textContent = winner()
             userScore = 0;
             computerScore = 0;
-        }
+            }
+            if (userScore === 1 && computerScore === 0 || userScore === 0 && computerScore === 1) {
+                div.textContent = "";
+            }
         });
         rock.addEventListener("click", () => {
             playRound(rock.value);
+            scores.textContent = `your score = ${userScore}  computer score = ${computerScore}`;
             if (userScore === 5 || computerScore === 5) {
-            p.textContent = winner()
+            div.textContent = winner()
             userScore = 0;
             computerScore = 0;
-        }
+            }
+            if (userScore === 1 && computerScore === 0 || userScore === 0 && computerScore === 1) {
+                div.textContent = "";
+            }
         });
         scissors.addEventListener("click", () => {
             playRound(scissors.value);
+            scores.textContent = `your score = ${userScore}  computer score = ${computerScore}`;
             if (userScore === 5 || computerScore === 5) {
-            p.textContent = winner()
+            div.textContent = winner()
             userScore = 0;
             computerScore = 0;
-        }
+            }
+            if (userScore === 1 && computerScore === 0 || userScore === 0 && computerScore === 1) {
+                div.textContent = "";
+            }
         })
 
         // function playRound with userChoice and computerChoice
         function playRound(userChoice, computerChoice) {
             computerChoice = getComputerChoice();
             if (userChoice === computerChoice) {
-                return console.log(`Draw!`);
+                return roundResult.textContent = `Draw!`;
             } else if (userChoice === "Paper" && computerChoice === "Rock") {
                 userScore++;
-                return console.log(`You Win! ${userChoice} beats ${computerChoice}`);
+                return roundResult.textContent = `You Win! ${userChoice} beats ${computerChoice}`;
             } else if (userChoice === "Scissors" && computerChoice === "Paper") {
                 userScore++;
-                return console.log(`You Win! ${userChoice} beats ${computerChoice}`);
+                return roundResult.textContent = `You Win! ${userChoice} beats ${computerChoice}`;
             } else if (userChoice === "Rock" && computerChoice === "Scissors") {
                 userScore++;
-                return console.log(`You Win! ${userChoice} beats ${computerChoice}`);
+                return roundResult.textContent = `You Win! ${userChoice} beats ${computerChoice}`;
             } else {
                 computerScore++;
-                return console.log(`You Lose! ${computerChoice} beats ${userChoice}`);
+                return roundResult.textContent = `You Lose! ${computerChoice} beats ${userChoice}`;
             }
         }
         // function getComputerChoice 
